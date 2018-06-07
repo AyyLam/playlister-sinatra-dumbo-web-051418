@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%=@song.name%></title>
+  </head>
+  <body>
+    <h1><%=@song.name%></h1>
+    <a href="/artists/<%=@song.artist.name%>"><h3><%=@song.artist.name%></h3></a>
+    <br><br>
+    <h3>Genres:</h3>
+    <ul>
+      <%sg = SongGenre.all.select{|x|x.song_id==@song.id}%>
+      <%sg.map do |x|%>
+      <li><a href="/genres/<%=x.genre.name%>"><%=x.genre.name%></li></a>
+      <% end %>
+    </ul>
+    <a href="/songs/<%=@song.name%>/edit">Edit Song</a>
+  </body>
+</html>

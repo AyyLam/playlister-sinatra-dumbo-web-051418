@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @artist.name %></title>
+  </head>
+  <body>
+    <!--Links to each of artist's songs  + genres -->
+    <h1><%= @artist.name %></h1>
+    <h3>Songs:</h3>
+    <ul>
+      <% @artist.songs.each do |song| %>
+      <li><a href="/songs/<%=song.name%>"><%= song.name %></a></li>
+    <% end %>
+    </ul>
+    <a href="/songs/new">Add Song</a>
+    <h3>Genres:</h3>
+    <ul>
+      <% @artist.genres.each do |genre| %>
+      <li><a href="/genres/<%=genre.name%>"><%= genre.name %></a></li>
+    <% end %>
+    </ul>
+  </body>
+</html>

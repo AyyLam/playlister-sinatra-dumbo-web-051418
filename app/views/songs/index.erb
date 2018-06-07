@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Song Lists</title>
+  </head>
+  <body>
+    <a href="/songs/new">Add Song</a>
+    <h1>List of Songs</h1>
+    <ul>
+      <%@songs.each do |song| %>
+      <li><a href="/songs/<%=song.name%>"><%=song.name%></a></li>
+      <% end %>
+    </ul>
+  </body>
+</html>
