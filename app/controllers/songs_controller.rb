@@ -15,10 +15,10 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    @artist = params[:song][:artist]
-    @artist_obj = Artist.find_or_create_by(name: @artist)
-    @artist_id = @artist_obj.id
-    @song = Song.create(name: params[:song][:name], artist_id: @artist_id)
+    artist_name = params[:song][:artist]
+    @song = Song.create(name: params[:song][:name])
+    @song.artist = artist_name
+    binding.pry
     @genre_ids = params[:genres]
     @genre_ids.each do |genre_id|
       SongGenre.create(song_id: @song.id, genre_id: genre_id)
